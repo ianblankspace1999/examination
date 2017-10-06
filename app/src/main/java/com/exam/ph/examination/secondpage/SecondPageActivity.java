@@ -384,7 +384,11 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
                 seat.status = HallScheme.SeatStatus.EMPTY;
 
                 if (j == 0 || j == seats[i].length - 1) {
-                    seat.marker = alphabetArr[i];
+                    try {
+                        seat.marker = alphabetArr[i];
+                    }catch (IndexOutOfBoundsException ex) {
+                        seat.marker = "";
+                    }
                     seat.status = HallScheme.SeatStatus.INFO;
                 } else {
                     if (!seatResponse.getSeatmap().get(i).get(j - 1).contains("(")) {

@@ -18,7 +18,7 @@ import java.lang.Override;
 public class MainActivity_ViewBinding implements Unbinder {
   private MainActivity target;
 
-  private View view2131492991;
+  private View view2131492992;
 
   @UiThread
   public MainActivity_ViewBinding(MainActivity target) {
@@ -40,7 +40,7 @@ public class MainActivity_ViewBinding implements Unbinder {
     target.mTvSynopsis = Utils.findRequiredViewAsType(source, R.id.tvSynopsis, "field 'mTvSynopsis'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btnProceed, "field 'mBtnProceed' and method 'onViewClicked'");
     target.mBtnProceed = Utils.castView(view, R.id.btnProceed, "field 'mBtnProceed'", Button.class);
-    view2131492991 = view;
+    view2131492992 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,6 +48,7 @@ public class MainActivity_ViewBinding implements Unbinder {
       }
     });
     target.mProgBar = Utils.findRequiredViewAsType(source, R.id.progBar, "field 'mProgBar'", ProgressBar.class);
+    target.mTvCast = Utils.findRequiredViewAsType(source, R.id.tvCast, "field 'mTvCast'", TextView.class);
   }
 
   @Override
@@ -67,8 +68,9 @@ public class MainActivity_ViewBinding implements Unbinder {
     target.mTvSynopsis = null;
     target.mBtnProceed = null;
     target.mProgBar = null;
+    target.mTvCast = null;
 
-    view2131492991.setOnClickListener(null);
-    view2131492991 = null;
+    view2131492992.setOnClickListener(null);
+    view2131492992 = null;
   }
 }

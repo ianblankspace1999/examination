@@ -35,8 +35,11 @@ public class BaseUtil {
 
         int mins = time % 60;
 
-
-        return mins == 0 ? hour + " Hrs" : hour + " " + mins + " Hrs";
+        if (hour > 0) {
+            return mins == 0 ? hour + " Hrs" : hour + " " + mins + " Hrs";
+        }else {
+            return mins + "";
+        }
     }
 
 

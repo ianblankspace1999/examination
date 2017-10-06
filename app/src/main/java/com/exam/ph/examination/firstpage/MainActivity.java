@@ -54,6 +54,9 @@ public class MainActivity extends BaseActivity implements MainView {
     @BindView(R.id.progBar)
     ProgressBar mProgBar;
 
+    @BindView(R.id.tvCast)
+    TextView mTvCast;
+
     private DataRepository mDataRepository;
 
     private MovieResponse mMovieResponse;
@@ -126,6 +129,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 mTvGenre.setText(mMovieResponse.getGenre());
                 mTvAdvisory.setText(mMovieResponse.getAdvisoryRating());
                 mTvDuration.setText(BaseUtil.convertTime(mMovieResponse.getRuntimeMins()));
+                mTvCast.setText(mMovieResponse.getCast().toString().replace("[","").replace("]",""));
                 Log.i("laaaaaaaaaaaag", "ian" + BaseUtil.convertTime(mMovieResponse.getRuntimeMins()));
                 mTvReleaseDate.setText(mMovieResponse.getReleaseDate());
                 mTvSynopsis.setText(mMovieResponse.getSynopsis());

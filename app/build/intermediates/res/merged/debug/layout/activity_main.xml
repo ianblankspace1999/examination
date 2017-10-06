@@ -133,7 +133,19 @@
                 android:layout_height="wrap_content"
                 tools:text="tetetetetetest"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cast"
+                />
 
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tvCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="tetetetetetest"
+                />
 
         </LinearLayout>
 
