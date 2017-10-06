@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MovieViewer</string>
+    <string name="base_url">http://ec2-52-76-75-52.ap-southeast-1.compute.amazonaws.com/</string>
+    <string name="btn_text">View Seat Map</string>
+</resources>

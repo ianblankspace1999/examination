@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\ian.blanco\.android\build-cache\4c7d2dfe83f286076b241df7290f28c171ff21bf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cb3cf97748344da6fad1deb830c7c479a7c53645">
+        <dex dex="D:\examination\app\build\intermediates\pre-dexed\debug\classes_855dcb1d9b409efede7bfea7c9d402489a3a309a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ian.blanco\.android\build-cache\e82ab20c7e645930a9d210953acc51d6b124a4f4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
+        <dex dex="D:\examination\app\build\intermediates\pre-dexed\debug\classes_11cf720dfaf9b2ce5761d44ffab6f79fbbb8d84b.jar" />
+    </item>
+
+</items>
