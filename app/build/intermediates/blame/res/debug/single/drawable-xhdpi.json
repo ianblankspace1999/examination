@@ -2,5 +2,9 @@
     {
         "merged": "D:\\examination\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_arrow_down_white_24dp.png",
         "source": "D:\\examination\\app\\src\\main\\res\\drawable-xhdpi\\ic_keyboard_arrow_down_white_24dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\examination\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_arrow_down_white_24dp.png",
+        "source": "D:\\AndroidStudioProjects\\examination\\app\\src\\main\\res\\drawable-xhdpi\\ic_keyboard_arrow_down_white_24dp.png"
     }
 ]

@@ -63,10 +63,22 @@ public class MainActivity extends BaseActivity implements MainView {
 
     private MainActivityPresenterImpl mMainActivityPresenter;
 
+    private DialogInterface.OnClickListener onClick = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            mMainActivityPresenter.loadData(mTestInterface, LoadAction.LOAD_MOVIE);
+        }
+    };
+
 
     @Override
     protected int getLayoutResource() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected DialogInterface.OnClickListener getListner() {
+        return onClick;
     }
 
 
@@ -79,19 +91,6 @@ public class MainActivity extends BaseActivity implements MainView {
 
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!networkHelper.isNetworkAvailable()) {
-            UiUtil.dialogWithOnClick(mContext, "No Internet connection!", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mMainActivityPresenter.loadData(mTestInterface, LoadAction.LOAD_MOVIE);
-                }
-            });
-        }
-    }
 
     private void initialize() {
         if (!networkHelper.isNetworkAvailable()) {

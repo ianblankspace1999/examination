@@ -28,6 +28,8 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected abstract int getLayoutResource();
 
 
+    protected abstract DialogInterface.OnClickListener getListner();
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,14 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!networkHelper.isNetworkAvailable()) {
+            UiUtil.dialogWithOnClick(mContext, "No Internet connection!", getListner());
+        }
+    }
 
 
 }

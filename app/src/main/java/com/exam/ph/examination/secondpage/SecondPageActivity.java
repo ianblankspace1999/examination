@@ -115,6 +115,13 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
 
     String[] alphabetArr = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
+    private DialogInterface.OnClickListener onClick = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            mSecondPagePresenterImpl.loadData(mTestInterface, LoadAction.LOAD_SCHEDULE);
+        }
+    };
+
     public static Intent newIntent(Context context, String theater) {
         Intent intent = new Intent(context, SecondPageActivity.class);
         intent.putExtra(ARGS_THEATER, theater);
@@ -127,25 +134,17 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
     }
 
     @Override
+    protected DialogInterface.OnClickListener getListner() {
+        return onClick;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSecondPagePresenterImpl = new SecondPagePresenterImpl();
         mSecondPagePresenterImpl.attachView(this);
         mTheater = getIntent().getExtras().getString(ARGS_THEATER);
         initialize();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!networkHelper.isNetworkAvailable()) {
-            UiUtil.dialogWithOnClick(mContext, "No Internet connection!", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mSecondPagePresenterImpl.loadData(mTestInterface, LoadAction.LOAD_SCHEDULE);
-                }
-            });
-        }
     }
 
 
@@ -186,8 +185,12 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
                     }
                 }
                 mCinemasArr = new ArrayList<>();
-                for (CinemaInfo cinemaInfo : cinemaInfos) {
-                    mCinemasArr.add(cinemaInfo.getLabel());
+                try {
+                    for (CinemaInfo cinemaInfo : cinemaInfos) {
+                        mCinemasArr.add(cinemaInfo.getLabel());
+                    }
+                }catch (NullPointerException ex) {
+//                    Nullpointer
                 }
                 BaseUtil.setSpinner(mContext, mSpnSecond, mCinemasArr);
 
@@ -203,7 +206,11 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
                     }
                 }
                 mTimesArr = new ArrayList<>();
-                mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(0).getPrice());
+                try {
+                    mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(0).getPrice());
+                }catch (IndexOutOfBoundsException ex) {
+//                    do nothing
+                }
                 for (TimesInfo timesInfo1 : timesInfo) {
                     mTimesArr.add(timesInfo1.getLabel());
                 }
@@ -228,10 +235,13 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
             }
             mTimesArr = new ArrayList<>();
             mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(0).getPrice());
-            for (TimesInfo timesInfo1 : timesInfo) {
-                mTimesArr.add(timesInfo1.getLabel());
+            try {
+                for (TimesInfo timesInfo1 : timesInfo) {
+                    mTimesArr.add(timesInfo1.getLabel());
+                }
+            }catch (NullPointerException ex) {
+//                Do nothing
             }
-
             BaseUtil.setSpinner(mContext, mSpnThird, mTimesArr);
 
         }
