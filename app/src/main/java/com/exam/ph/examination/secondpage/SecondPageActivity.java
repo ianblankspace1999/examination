@@ -312,13 +312,21 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
                                 if (mLlContainer1.getChildCount() < 5) {
                                     mLlContainer1.addView(createdSeats.getViewDisplay(mContext));
                                     mSelectedSeats.add(createdSeats);
-                                    mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                    try {
+                                        mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                    } catch (IndexOutOfBoundsException ex) {
+//                                        do nothing
+                                    }
                                     mTvLabelSeat.setVisibility(mSelectedSeats.size() > 0 ? View.VISIBLE : View.GONE);
                                     return;
                                 }
                                 mLlContainer2.addView(createdSeats.getViewDisplay(mContext));
                                 mSelectedSeats.add(createdSeats);
-                                mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                try {
+                                    mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                }catch (IndexOutOfBoundsException ex) {
+//                                    do nothing
+                                }
                                 mTvLabelSeat.setVisibility(mSelectedSeats.size() > 0 ? View.VISIBLE : View.GONE);
 
                             }
@@ -339,7 +347,11 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
                                 mLlContainer2.removeAllViews();
 
                                 mSelectedSeats.remove(createdSeats);
-                                mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                try {
+                                    mSecondPagePresenterImpl.calculateTotal(mSelectedSeats.size(), timesInfo.get(spnThirdPosition).getPrice());
+                                }catch (IndexOutOfBoundsException ex) {
+//                                    do nothing
+                                }
                                 for (CreatedSeats createdSeats1 : mSelectedSeats) {
                                     int sample = mLlContainer1.getChildCount();
                                     if (mLlContainer1.getChildCount() < 5) {
