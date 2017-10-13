@@ -1,5 +1,6 @@
 package com.exam.ph.examination.firstpage;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.exam.ph.examination.BaseActivity;
+import com.exam.ph.examination.ExamApplication;
 import com.exam.ph.examination.R;
 import com.exam.ph.examination.Utils.BaseUtil;
 import com.exam.ph.examination.Utils.UiUtil;
@@ -17,6 +19,8 @@ import com.exam.ph.examination.models.MovieResponse;
 import com.exam.ph.examination.repository.DataRepository;
 import com.exam.ph.examination.restclient.LoadAction;
 import com.exam.ph.examination.secondpage.SecondPageActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -57,11 +61,13 @@ public class MainActivity extends BaseActivity implements MainView {
     @BindView(R.id.tvCast)
     TextView mTvCast;
 
+    @Inject
+    MainActivityPresenter mMainActivityPresenter;
+
     private DataRepository mDataRepository;
 
     private MovieResponse mMovieResponse;
 
-    private MainActivityPresenterImpl mMainActivityPresenter;
 
     private DialogInterface.OnClickListener onClick = new DialogInterface.OnClickListener() {
         @Override
@@ -77,6 +83,11 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
+    protected Activity getActivity() {
+        return this;
+    }
+
+    @Override
     protected DialogInterface.OnClickListener getListner() {
         return onClick;
     }
@@ -85,7 +96,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMainActivityPresenter = new MainActivityPresenterImpl();
+        ((ExamApplication) getApplication()).getAppComponent().inject(this);
         mMainActivityPresenter.attachView(this);
         initialize();
 

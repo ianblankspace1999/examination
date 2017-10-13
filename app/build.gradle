@@ -26,6 +26,7 @@ android {
 }
 
 dependencies {
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -44,7 +45,6 @@ dependencies {
     compile "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"
     compile "io.reactivex:rxjava:$rootProject.ext.rxjavaVersion"
 
-
 //    Retrofit
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.gsonVersion"
@@ -60,14 +60,15 @@ dependencies {
 //    Glide image
     compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
 
-
-
 //    HallScheme
     compile "com.github.Nublo:hallscheme:$rootProject.ext.hallschemeVersion"
 
-
 //    lombok
     provided "org.projectlombok:lombok:$rootProject.ext.lombokVersion" //or v. 1.16.2 in your case.
+
+//  Dagger
+    compile 'com.google.dagger:dagger:2.4'
+    annotationProcessor "com.google.dagger:dagger-compiler:2.4"
 
     testCompile 'junit:junit:4.12'
 }

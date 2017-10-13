@@ -3,21 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\ian.blanco\.android\build-cache\4c7d2dfe83f286076b241df7290f28c171ff21bf\output\jars\classes.jar"
+        jar="C:\Users\ian.blanco\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="cb3cf97748344da6fad1deb830c7c479a7c53645">
-        <dex dex="D:\examination\app\build\intermediates\pre-dexed\debug\classes_855dcb1d9b409efede7bfea7c9d402489a3a309a.jar" />
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="D:\AndroidStudioProjects\examination\app\build\intermediates\pre-dexed\debug\javax.inject-1_94322f05f6ec33e0e1feaa70fbfc7ac1346b4fe2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\ian.blanco\.android\build-cache\e82ab20c7e645930a9d210953acc51d6b124a4f4\output\jars\classes.jar"
+        jar="C:\Users\ian.blanco\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.4\6b290a792253035c9fcc912d6a4d7efb3e850211\dagger-2.4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
-        <dex dex="D:\examination\app\build\intermediates\pre-dexed\debug\classes_11cf720dfaf9b2ce5761d44ffab6f79fbbb8d84b.jar" />
+        sha1="6b290a792253035c9fcc912d6a4d7efb3e850211">
+        <dex dex="D:\AndroidStudioProjects\examination\app\build\intermediates\pre-dexed\debug\dagger-2.4_005d0549ff3df47f0e21114ff46204540703105a.jar" />
     </item>
 
 </items>

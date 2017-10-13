@@ -1,5 +1,6 @@
 package com.exam.ph.examination;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -8,8 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.exam.ph.examination.Utils.NetworkHelper;
 import com.exam.ph.examination.Utils.UiUtil;
+import com.exam.ph.examination.firstpage.MainActivity;
 import com.exam.ph.examination.restclient.Rest;
 import com.exam.ph.examination.restclient.restinterface.TestInterface;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -20,12 +24,18 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity{
 
     protected Context mContext;
-    protected TestInterface mTestInterface;
+//    protected TestInterface mTestInterface;
+
+
 
     protected NetworkHelper networkHelper;
 
+    @Inject
+    protected TestInterface mTestInterface;
 
     protected abstract int getLayoutResource();
+
+    protected abstract Activity getActivity();
 
 
     protected abstract DialogInterface.OnClickListener getListner();
@@ -35,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         mContext = this;
         networkHelper = new NetworkHelper(mContext);
-        mTestInterface = Rest.create(mContext, TestInterface.class);
+        ((ExamApplication) getApplication()).getAppComponent().inject(this);
         setContentView(getLayoutResource());
         ButterKnife.bind(this);
 

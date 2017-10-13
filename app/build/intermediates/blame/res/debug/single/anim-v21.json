@@ -1,14 +1,6 @@
 [
     {
-        "merged": "D:\\examination\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_appbar_state_list_animator.xml",
-        "source": "C:\\Users\\ian.blanco\\.android\\build-cache\\e82ab20c7e645930a9d210953acc51d6b124a4f4\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\examination\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
-        "source": "C:\\Users\\ian.blanco\\.android\\build-cache\\e82ab20c7e645930a9d210953acc51d6b124a4f4\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
-    },
-    {
-        "merged": "D:\\examination\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
         "source": "C:\\Users\\ian.blanco\\.android\\build-cache\\e82ab20c7e645930a9d210953acc51d6b124a4f4\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
     },
     {
@@ -18,9 +10,5 @@
     {
         "merged": "D:\\AndroidStudioProjects\\examination\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_appbar_state_list_animator.xml",
         "source": "C:\\Users\\ian.blanco\\.android\\build-cache\\e82ab20c7e645930a9d210953acc51d6b124a4f4\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
-    },
-    {
-        "merged": "D:\\examination\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
-        "source": "C:\\Users\\ian.blanco\\.android\\build-cache\\e82ab20c7e645930a9d210953acc51d6b124a4f4\\output\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
     }
 ]

@@ -1,5 +1,6 @@
 package com.exam.ph.examination.secondpage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exam.ph.examination.BaseActivity;
+import com.exam.ph.examination.ExamApplication;
 import com.exam.ph.examination.R;
 import com.exam.ph.examination.Utils.BaseUtil;
 import com.exam.ph.examination.Utils.ModelUtil;
@@ -33,6 +35,8 @@ import com.exam.ph.examination.models.schedulemodel.TimesInfo;
 import com.exam.ph.examination.restclient.LoadAction;
 
 import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import by.anatoldeveloper.hallscheme.hall.HallScheme;
@@ -85,6 +89,10 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
     FrameLayout mMainLayout;
 
 
+    @Inject
+    SecondPagePresenter mSecondPagePresenterImpl;
+
+
     private ScheduleResponse mScheduleResponse;
     private SeatResponse mSeatResponse;
 
@@ -97,7 +105,6 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
     private ArrayList<TimesInfo> timesInfo = new ArrayList<>();
     private ArrayList<CinemaInfo> cinemaInfos = new ArrayList<>();
 
-    private SecondPagePresenterImpl mSecondPagePresenterImpl;
 
     //    storage of all selected seats
     ArrayList<CreatedSeats> mSelectedSeats = new ArrayList<>();
@@ -134,6 +141,11 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
     }
 
     @Override
+    protected Activity getActivity() {
+        return null;
+    }
+
+    @Override
     protected DialogInterface.OnClickListener getListner() {
         return onClick;
     }
@@ -141,7 +153,7 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSecondPagePresenterImpl = new SecondPagePresenterImpl();
+        ((ExamApplication) getApplication()).getAppComponent().inject(this);
         mSecondPagePresenterImpl.attachView(this);
         mTheater = getIntent().getExtras().getString(ARGS_THEATER);
         initialize();
@@ -161,7 +173,6 @@ public class SecondPageActivity extends BaseActivity implements AdapterView.OnIt
 
         mTvTheater.setText(mTheater);
         mSecondPagePresenterImpl.loadData(mTestInterface, LoadAction.LOAD_SCHEDULE);
-
 
 //        Setup spinner
         mSpnFirst.setOnItemSelectedListener(this);
