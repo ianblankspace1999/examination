@@ -113,7 +113,7 @@ app/mirror/
 .gradle/
 gradle
 !gradle-wrapper.jar
-build/
+build/*/
 /*/build/
 
 # Local configuration file (sdk path, etc)

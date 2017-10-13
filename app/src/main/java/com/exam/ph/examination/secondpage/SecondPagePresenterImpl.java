@@ -57,6 +57,7 @@ public class SecondPagePresenterImpl implements SecondPagePresenter {
         }
     }
 
+
     @Override
     public void detachView() {
 

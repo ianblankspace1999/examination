@@ -20,6 +20,8 @@ public class AppModule {
         this.application = application;
     }
 
+
+
     @Provides
     @Singleton
     public Context getContext() {
