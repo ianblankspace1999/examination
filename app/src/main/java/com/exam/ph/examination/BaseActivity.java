@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.exam.ph.examination.Utils.NetworkHelper;
 import com.exam.ph.examination.Utils.UiUtil;
 import com.exam.ph.examination.firstpage.MainActivity;
+import com.exam.ph.examination.restclient.LoadAction;
 import com.exam.ph.examination.restclient.Rest;
 import com.exam.ph.examination.restclient.restinterface.TestInterface;
 
@@ -24,9 +25,6 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity{
 
     protected Context mContext;
-//    protected TestInterface mTestInterface;
-
-
 
     protected NetworkHelper networkHelper;
 
@@ -49,8 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity{
         setContentView(getLayoutResource());
         ButterKnife.bind(this);
 
-
     }
+
 
 
     @Override
